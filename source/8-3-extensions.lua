@@ -14,9 +14,12 @@ letters = {
 
 io.output(file)
 
-for i in pairs(letters) do
-  io.write("a")
-  print("a")
+for first in pairs(letters) do
+  for second in pairs(letters) do
+    for third in pairs(letters) do
+      io.write("." .. letters[first] .. letters[second] .. letters[third])
+    end
+  end
 end
 
-io.close(file)
+io.close()
