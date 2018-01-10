@@ -11,6 +11,7 @@ letters = {
   "n",  "o",  "p",  "q",  "q",  "r",  "s",  "t",  "u",  "v",  "w",  "x",  "y",
   "z"
 }
+extensions = 1
 
 io.output(file)
 
@@ -20,13 +21,18 @@ for first in pairs(letters) do
       extension = "." .. letters[first] .. letters[second] .. letters[third]
       io.write(extension)
       
-      if (first + second + third) % 80 == 0 then
+      -- Enforce 80 column rule
+      if (extensions * 4) % 64 == 0 then
         io.write("\n")
       else
         io.write(" ")
       end
+      
+      extensions = extensions + 1
     end
   end
 end
 
 io.close(file)
+
+print("Output", extensions, "extensions to", path)
