@@ -17,9 +17,16 @@ io.output(file)
 for first in pairs(letters) do
   for second in pairs(letters) do
     for third in pairs(letters) do
-      io.write("." .. letters[first] .. letters[second] .. letters[third])
+      extension = "." .. letters[first] .. letters[second] .. letters[third]
+      io.write(extension)
+      
+      if (first + second + third) % 80 == 0 then
+        io.write("\n")
+      else
+        io.write(" ")
+      end
     end
   end
 end
 
-io.close()
+io.close(file)
